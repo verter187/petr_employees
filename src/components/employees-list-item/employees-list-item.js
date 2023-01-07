@@ -19,6 +19,13 @@ const EmployeesListItem = ({
       <span
         className="list-group-item-label"
         onClick={() => onUpdate({ id: id, promotion: !promotion })}
+        // style={{
+        //   fontSize: "40px",
+        //   color: "red",
+        //   transition: "all",
+        //   WebkitTransition: "all",
+        //   msTransition: "all",
+        // }}
       >
         {name + " " + lastname}
       </span>
