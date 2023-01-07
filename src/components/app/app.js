@@ -17,6 +17,7 @@ class App extends Component {
     super(props);
     this.state = {
       employees: [],
+      found: [],
     };
   }
 
@@ -24,8 +25,26 @@ class App extends Component {
     this.setState({ employees: employees });
   };
 
+  setfound = (found) => {
+    this.setState({ found: found });
+  };
+
   componentDidMount = () => {
     getEmployees(this.setEmployees);
+  };
+
+  searchEmployees = (employees, term) => {
+    if (term.length === 0) {
+      return employees;
+    }
+    term = term.toLowerCase();
+    const found = employees.filter((employee) => {
+      return (
+        employee.name.toLowerCase().includes(term) ||
+        employee.lastname.toLowerCase().includes(term)
+      );
+    });
+    this.setEmployees(found);
   };
 
   createEmployeeInList = (employee) => {
@@ -49,10 +68,13 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <AppInfo />
+        <AppInfo employees={this.state.employees} />
 
         <div className="search-panel">
-          <SearchPanel />
+          <SearchPanel
+            employees={this.state.employees}
+            onExchenge={this.searchEmployees}
+          />
           <AppFilter />
         </div>
 

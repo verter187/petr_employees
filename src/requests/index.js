@@ -5,7 +5,6 @@ export const getEmployees = (resolve, reject = () => {}) => {
 };
 
 export const createEmployee = async (data) => {
-  console.log(data);
   let res = await fetch("http://localhost:5000/api/router/createEmployee", {
     method: "POST",
     headers: { "Content-type": "application/json" },

@@ -29,6 +29,7 @@ class EmployeesAddForm extends Component {
             placeholder="Имя"
             name="name"
             value={name}
+            required
             onChange={this.onValueChange}
           />
           <input
