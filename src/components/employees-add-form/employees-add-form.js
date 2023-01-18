@@ -16,6 +16,12 @@ class EmployeesAddForm extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  static onLog = () => {
+    console.log("Hey!");
+  };
+
+  static logged = "on";
+
   render() {
     const { name, lastname, salary } = this.state;
 
@@ -72,4 +78,6 @@ class EmployeesAddForm extends Component {
   }
 }
 
+EmployeesAddForm.onLog();
+console.log(EmployeesAddForm.logged);
 export default EmployeesAddForm;
